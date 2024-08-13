@@ -8,6 +8,29 @@ body {
             @include headerDesign(15px);
 
         }
+
+        .countIcon {
+            position: absolute;
+            border-radius: 50%;
+            right: 38px;
+            top: 44px;
+            background-color: #f16666;
+            width: 23px;
+            padding: 1px;
+            text-align: center;
+            color: #fff;
+            visibility: hidden;
+
+            &.showCounterCart {
+                visibility: visible;
+            }
+
+            @media  (max-width:820px){
+                right: 3px;
+                top: 21px;
+                width: 20px;
+            }
+        }
     }
 
     .menu {
@@ -110,6 +133,7 @@ body {
 
                 .products__cost {
                     @include products__cost();
+
                     @media (max-width: 480px) {
                         padding: 0 10px;
                     }
@@ -122,7 +146,7 @@ body {
             @include width(500px);
 
             @media (max-width:820px) {
-                @include cart(89px,-19px -1px 22px -15px rgba(0, 0, 0, 0.30),-107%, 60%);
+                @include cart(89px, -19px -1px 22px -15px rgba(0, 0, 0, 0.30), -107%, 60%);
                 @include width(400px);
             }
 
@@ -130,7 +154,7 @@ body {
                 @include cart(80px, none, -107%);
                 width: $widthTotal;
             }
-            
+
 
             &.show {
                 right: 0%;
