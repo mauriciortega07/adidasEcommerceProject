@@ -1,0 +1,127 @@
+body {
+    .header {
+        &__icon {
+            @include width(35px);
+            @extend %icon;
+
+            @media (max-width:820px) {
+                @include width(30px);
+
+            }
+
+            .header__icon-img {
+                width: $widthTotal;
+            }
+
+        }
+
+        .header__logo-img {
+            @include width(100px);
+
+            @media (max-width:820px) {
+                @include width(60px);
+
+            }
+        }
+    }
+
+    .menu {
+        .close {
+            display: flex;
+            width: 65px;
+            @media (max-width:480px) {
+                width: 40px;
+            }
+            .icon-close {
+                display: block;
+                width: 100%;
+                cursor: pointer;
+                &__img {
+                    width: 40%;
+                    padding: 30%;
+                }
+            } 
+        }
+    }
+
+    main {
+        .banner {
+            @include bannerDesign();
+
+            @media (max-width:480px) {
+                @include bannerDesign(30px 0);
+            }
+        }
+
+        .products-grid {
+            .products {
+                @include products();
+
+                &__cover {
+                    @include width(200px);
+                    @include products__cover();
+
+                    @media (max-width:820px) {
+                        @include width(150px);
+                    }
+
+                    @media (max-width:480px) {
+                        @include products__cover(10px);
+                        max-width: 200px;
+                        width: $widthTotal;
+                    }
+                }
+
+                .addCart {
+                    font-family:"Lexend", Arial, Helvetica, sans-serif;
+                    font-size: clamp(.6rem, .8rem, 2rem);
+                    border: none;
+                    width: calc(70% - 10px);
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 2px solid #f0e5e5;
+                    border-radius: 10px;
+                    transition: all 1s ease;
+                    cursor: pointer;
+
+                    @media(hover: hover){
+                        &:hover {
+                            background: #f79595;
+                            color: #ffff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .cart {
+            &__close {
+                .icon-close {
+                    &__img {
+                        cursor: pointer;
+                    }
+                }
+            }
+            .cart__items {
+                &-cover {
+                    @include width(60px);
+
+                    @media (max-width:480px) {
+                        @include width(100px);
+                    }
+                }
+
+                &-iconRemove {
+                    @include width(20px);
+                    @extend %icon;
+
+                    .cart_delete-icon {
+                        width: $widthTotal;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
