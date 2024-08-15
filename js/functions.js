@@ -62,25 +62,28 @@ const botonAddCart = document.querySelectorAll(".addCart");
 //Funcion que manda los productos al carrito
 const addProductButton = boton => {
     boton.addEventListener("click", () => {
+        /*Aqui se crea cada seccion(fragmento) en el carrito 
+        por cada prodcuto que se agrega
+        */
         const fragment = document.createDocumentFragment();
         for (let i = 0; i < 1; i++) {
 
             const itemPadreProducts = boton.parentElement;
-            console.log(itemPadreProducts);
+            //console.log(itemPadreProducts);
 
             //Agregar elementos
             //foto del producto;
             const coverProduct = itemPadreProducts.firstElementChild;
-            console.log(coverProduct);
+            //console.log(coverProduct);
             const srcCover = coverProduct.getAttribute("src");
 
             //titulo del producto;
             const titleProduct = coverProduct.nextElementSibling;
-            console.log(titleProduct);
+            //console.log(titleProduct);
 
             //Costo
             const costProduct = titleProduct.nextElementSibling;
-            console.log(costProduct);
+            //console.log(costProduct);
 
 
             //Se crea el <contenedor>
@@ -115,6 +118,17 @@ const addProductButton = boton => {
             iconRemove.addEventListener("click", () => {
                 const itemParent = iconRemove.parentElement;
                 itemParent.remove();
+
+                //badge que muestra el decremento del contador
+                //se obtiene el padre de los elementos agregados del carrito
+                const productsCount = document.querySelector(".cartItems");
+                //se obtiene la cantidad de hijos que se van agregando al padre
+                const cartItems = productsCount.childNodes.length;
+                const counterItems = document.querySelector(".count");
+                counterItems.innerHTML = cartItems;
+                console.log(cartItems);
+            
+                
             })
 
             //Se agregan al contenedor 
@@ -125,14 +139,27 @@ const addProductButton = boton => {
             newDiv.appendChild(iconRemove);
             iconRemove.appendChild(imgRemove);
 
+            //Activacion del badge
+            const counterCart = document.querySelector(".countIcon");
+            const showCounterCart = counterCart.classList.add("showCounterCart");
+            //se obtiene el padre de los elementos agregados del carrito
+            const productsCount = document.querySelector(".cartItems");
+            //se obitiene la cantidad de hijos que se van agregando al padre
+            const cartItems = productsCount.childNodes.length+1;
+            //Se crea un contador para los productsoq ue se van agregando
+            for (let i = 0; i <= cartItems; i++) {
+                const counterItmes = document.querySelector(".count");
+                counterItmes.innerHTML = cartItems;
 
-            console.log(i);
+            }
         }
-        document.querySelector(".cart").appendChild(fragment);
+        //Se agrega los nuevos fragmentos de productso al portal del carrito
+        document.querySelector(".cartItems").appendChild(fragment);
 
     });
 }
 
+//se ejecuta el metodo forEach con la funcion que agrega nuestros productos
 botonAddCart.forEach(addProductButton);
 
 

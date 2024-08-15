@@ -10,6 +10,7 @@ body {
         }
 
         .countIcon {
+            
             position: absolute;
             border-radius: 50%;
             right: 38px;
@@ -20,7 +21,11 @@ body {
             text-align: center;
             color: #fff;
             visibility: hidden;
-
+            
+            /*&::before {
+                content: attr(data-count);
+            }*/
+            
             &.showCounterCart {
                 visibility: visible;
             }
