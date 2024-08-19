@@ -98,6 +98,7 @@ const addProductButton = boton => {
             let cover = document.createElement("img");
             cover.classList.add("cart__items-cover");
             cover.setAttribute("src", srcCover);
+            cover.setAttribute("alt", "producto");
 
             //Se crea el <p> del nombre del producto
             let title = document.createElement("p");

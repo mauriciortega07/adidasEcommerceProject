@@ -11,20 +11,11 @@ body {
 
         .countIcon {
 
-            position: absolute;
-            border-radius: 50%;
-            right: 38px;
-            top: 44px;
-            background-color: #f16666;
-            width: 23px;
-            padding: 1px;
-            text-align: center;
-            color: #fff;
+           @include countIcon;
 
 
             &.showCounterCart {
-                visibility: visible;
-                transition: all .25s ease-in-out;
+                @include showCounterCart;
             }
 
             @media (max-width:820px) {
@@ -36,14 +27,7 @@ body {
     }
 
     .menu {
-        width: 100%;
-        display: flex;
-        height: 65px;
-        position: fixed;
-        left: -100%;
-        background-color: #ffffff;
-        transition: all .25s ease-in-out;
-        box-shadow: 10px 20px 20px -20px #4b4b4b;
+        @include menuStyle;
 
         @media (max-width:480px) {
             width: 38%;
@@ -62,13 +46,7 @@ body {
         }
 
         &__categories {
-            height: 100%;
-            display: flex;
-            flex: 1 0 0;
-            padding: 20px 0px;
-            box-sizing: border-box;
-            justify-content: space-evenly;
-            align-items: center;
+            @include categoriasMenu;
 
             @media (max-width:480px) {
                 flex-direction: column;
@@ -90,11 +68,9 @@ body {
 
     .categoriesProducts {
         .categoriesProducts__item  {
-            display: flex;
-            transition: all 1s ease;
-            position: fixed;
-            top: -1800px;
-            background-color: #ffffff;
+            
+            @include categoriasProductsItems;
+
             @media (max-width:480px) {
                 flex-wrap: wrap;
                 flex-direction: column;
@@ -103,9 +79,8 @@ body {
            
 
             &.showCategoriesProducts {
-                position: fixed;
-                top: 24%;
-                background-color: #ffffff;
+                @include showCategoriesProducts;
+
                 @media (max-width:480px) {
                     top: 9%;
                     height: 100%;
@@ -118,11 +93,7 @@ body {
             }
 
             div:nth-child(2) {
-                display: flex;
-                flex: 1 1 0;
-                height: 100%;
-                flex-direction: column;
-                align-items: center;
+                @include categoriaPromo;
 
                 @media (max-width:480px) {
                     display: none;
@@ -140,10 +111,7 @@ body {
             }
 
             div:nth-child(3) {
-                display: flex;
-                flex: 3 1 0;
-                padding: 20px;
-                box-sizing: border-box;
+               @include categoriasEstructura;
 
                 @media (max-width:480px) {
                     flex-wrap: wrap;
@@ -151,24 +119,19 @@ body {
                 }
 
                 ul {
+
                     h5 {
                         margin: 10px 0px;
                     }
 
-                    list-style: none;
-                    margin: 10px;
-                    padding: 0px 10px;
-                    width: 25%;
-                    font-size: clamp(.5rem, .9rem, 2rem);
+                    @include listStyles;
 
                     @media (max-width:480px) {
                         flex: 2 0 0;
                     }
 
                     li {
-                        margin: 5px 0px;
-                        cursor: pointer;
-                        font-size: clamp(.3rem, .9rem, 1rem);
+                        @include estiloDeItemLista;
 
                         span {
                             font-weight: 600;
@@ -281,6 +244,7 @@ body {
                 }
 
                 &-title {
+                    text-align: center;
                     margin: 0;
                     width: 50%;
                 }
